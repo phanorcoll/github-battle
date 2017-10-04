@@ -1,6 +1,7 @@
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var config = {
     entry: './app/index.js',
@@ -23,7 +24,10 @@ var config = {
     devServer: {
         historyApiFallback: true
     },
-    plugins: [new HtmlWebpackPlugin({template: 'app/index.html'})]
+    plugins: [
+        new HtmlWebpackPlugin({template: 'app/index.html'}),
+        new CleanWebpackPlugin(['dist'])
+    ]
 };
 
 if (process.env.NODE_ENV === 'production') {
