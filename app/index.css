@@ -44,6 +44,10 @@ li {
 .popular-item {
     margin: 20px;
     text-align: center;
+    background: #ede8e8;
+    padding: 50px;
+    border: 1px solid #ccc;
+    width: 150px;
 }
 
 .popular-rank {
@@ -55,7 +59,7 @@ li {
     display: flex;
 }
 
-.active{
+.active {
     font-weight: bold;
 }
 
@@ -63,7 +67,7 @@ li {
     margin-right: 15px;
 }
 
-a{
+a {
     text-decoration: none;
     color: #d0021b;
 }
@@ -88,12 +92,12 @@ a{
 }
 
 .button:hover:enable {
-    background: linear-gradient(#1a1a1a,#0a0a0a);
+    background: linear-gradient(#1a1a1a, #0a0a0a);
     color: #fff;
     text-decoration: none;
 }
 
-button:active{
+button:active {
     transform: translate(1px);
 }
 
@@ -102,7 +106,7 @@ button:active{
     justify-content: space-around;
 }
 
-.column{
+.column {
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -113,7 +117,7 @@ button:active{
     border-radius: 3px;
     margin: 10px 0;
     padding: 5px;
-    border: 1px solid rgba(0,0,0,0.43);
+    border: 1px solid rgba(0, 0, 0, 0.43);
     font-size: 16px;
     width: 80%;
 }
@@ -137,4 +141,22 @@ button:active{
     display: block;
     width: 100%;
     text-align: center;
+}
+
+
+.grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.grow:hover,
+.grow:focus,
+.grow:active {
+    transform: scale(1.1);
 }
