@@ -109,6 +109,7 @@ class Battle extends React.Component{
         var playerTwoImage = this.state.playerTwoImage;
         return (
             <div>
+                <div className="github-battle"></div>
                 <div className='row'>
                     {!playerOneName &&
                      <PlayerInput 

@@ -4,15 +4,17 @@ var PropTypes = require('prop-types');
 function PlayerPreview(props) {
     return(
         <div>
-            <div className='column'>
+            <div className='popular-item'>
                 <img
                  className='avatar'
                  src={props.avatar}
                  alt={'Avatar for ' + props.username}
                  />
                  <h2 className='username'>@{props.username}</h2>
+                 <div>
+                    {props.children}
+                 </div>
             </div>
-            {props.children}
         </div>
     )
 }
