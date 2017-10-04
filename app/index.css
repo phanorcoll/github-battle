@@ -18,12 +18,35 @@ li {
 .languages {
     display: flex;
     justify-content: center;
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
 .languages li {
     margin: 10px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.languages li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.languages li a:hover {
+    background-color: #111;
+}
+
+.active-language {
+    background-color: #4CAF50;
 }
 
 .avatar {
