@@ -4,12 +4,16 @@ var PropTypes = require('prop-types');
 var styles = {
     content: {
         textAlign: 'center',
-        fontSize: '35px'
+        fontSize: '35px',
+        margin: '20px 0px 0px 0px'
+    },
+    marginAnim:{
+        margin: '50px'
     }
 }
 
 class Loading extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -17,34 +21,14 @@ class Loading extends React.Component {
         }
     }
 
-    componentDidMount(){
-        var stopper = this.props.text + '...';
-        this.interval =window.setInterval(function(){
-            if(this.state.text === stopper) {
-                this.setState(function(){
-                    return {
-                        text: this.props.text
-                    }
-                })
-            } else {
-                this.setState(function(prevState){
-                    return {
-                        text: prevState.text + '.'
-                    }
-                });
-            }
-        }.bind(this),this.props.speed)
-    }
-
-    componentWillUnmount(){
-        window.clearInterval(this.interval)
-    }
-
-    render(){
-        return(
-            <p style={styles.content}>
-                {this.state.text}
-            </p>
+    render() {
+        return (
+            <div style={styles.marginAnim}>
+                <div className="loader"></div>
+                <p style={styles.content}>
+                    {this.state.text}
+                </p>
+            </div>
         )
     }
 }
