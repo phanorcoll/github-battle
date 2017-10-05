@@ -20,7 +20,32 @@ var config = {
                 use: ['style-loader', 'css-loader']
             }, {
                 test: /\.(png|svg|jpe?g|gif)/,
-                use: ['file-loader?name=[name].[ext]&outputPath=images/']
+                use: [
+                    'file-loader?name=[name].[ext]&outputPath=images/',
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            optipng: {
+                                optimizationLevel: 5,
+                            },
+                            pngquant: {
+                                quality: '80-90',
+                                speed: 4
+                            },
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 75
+                            },
+                            // Specifying webp here will create a WEBP version of your JPG/PNG images
+                            webp: {
+                                quality: 75
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -28,7 +53,7 @@ var config = {
         historyApiFallback: true
     },
     plugins: [
-        new HtmlWebpackPlugin({template: 'app/index.html'}),
+        new HtmlWebpackPlugin({ template: 'app/index.html' }),
         new CleanWebpackPlugin(['dist'])
     ]
 };
@@ -36,10 +61,10 @@ var config = {
 if (process.env.NODE_ENV === 'production') {
     config.plugins.push(
         new webpack.DefinePlugin({
-            'process.env' : {
+            'process.env': {
                 'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
             }
-        }), 
+        }),
         new webpack.optimize.UglifyJsPlugin())
 }
 
